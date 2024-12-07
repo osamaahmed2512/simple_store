@@ -1,0 +1,27 @@
+[
+  {
+    "Name": "Laptop",
+    "Price": 1000.0,
+    "Description": "A high-performance laptop."
+  },
+  {
+    "Name": "Smartphone",
+    "Price": 500.0,
+    "Description": "A sleek and powerful smartphone."
+  },
+  {
+    "Name": "Headphones",
+    "Price": 50.0,
+    "Description": "Noise-cancelling headphones."
+  },
+  {
+    "Name": "Smartwatch",
+    "Price": 200.0,
+    "Description": "A smartwatch with fitness tracking."
+  },
+  {
+    "Name": "Backpack",
+    "Price": 40.0,
+    "Description": "Durable and stylish backpack."
+  }
+]

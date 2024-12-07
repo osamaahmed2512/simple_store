@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "g1icKvDcBs8=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\DELL\\source\\repos\\simplestoresimulator\\simplestoresimulator\\simplestoresimulator.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\DELL\\.nuget\\packages\\fsharp.core\\8.0.300\\fsharp.core.8.0.300.nupkg.sha512"
+  ],
+  "logs": []
+}
