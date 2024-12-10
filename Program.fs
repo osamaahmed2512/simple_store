@@ -25,7 +25,7 @@ let createMainForm (productCatalog: Product list) =
   
     // Product catalog display
     let productListBox = new ListBox(Dock = DockStyle.Fill)
-    
+    let cartListBox = new ListBox(Dock = DockStyle.Fill)  
 
  // Product details display
     let productDetailsLabel = new Label(Text = "Select a product to view details.", TextAlign = Drawing.ContentAlignment.MiddleCenter, Font = new Drawing.Font("Arial", 12.0F))
@@ -34,7 +34,9 @@ let createMainForm (productCatalog: Product list) =
 // Create a panel for the product details label
     let productDetailsPanel = new Panel(Dock = DockStyle.Fill)
     productDetailsPanel.Controls.Add(productDetailsLabel)   
-
+    let addToCartButton = new Button(Text = "Add to Cart", Dock = DockStyle.Top, Height = 40)
+    let removeFromCartButton = new Button(Text = "Remove from Cart", Dock = DockStyle.Top, Height = 40)
+    let checkoutButton = new Button(Text = "Checkout", Dock = DockStyle.Top, Height = 40)
    
     productCatalog 
     |> List.iter (fun p -> productListBox.Items.Add($"{p.Name} - ${p.Price}") |> ignore)
@@ -51,7 +53,12 @@ let createMainForm (productCatalog: Product list) =
 
     form.Controls.Add(splitContainer)
     
-   
+    let rightPanel = new Panel(Dock = DockStyle.Right, Width = 320)
+    rightPanel.Controls.Add(cartListBox)
+    rightPanel.Controls.Add(checkoutButton)
+    rightPanel.Controls.Add(removeFromCartButton)
+    rightPanel.Controls.Add(addToCartButton)
+    form.Controls.Add(rightPanel)
 
     form
 
