@@ -60,6 +60,22 @@ let createMainForm (productCatalog: Product list) =
     rightPanel.Controls.Add(addToCartButton)
     form.Controls.Add(rightPanel)
 
+        
+    let updateProductDetails (selectedProduct: Product) =
+        // Updating the product details label with selected product details
+        productDetailsLabel.Text <- $"Name: {selectedProduct.Name}\nPrice: ${selectedProduct.Price}\nDescription: {selectedProduct.Description}"
+   
+    
+    // Update product details when a product is selected
+    productListBox.SelectedIndexChanged.Add(fun _ ->
+        if productListBox.SelectedIndex >= 0 then
+            let selectedProductName = productListBox.SelectedItem.ToString().Split(" - ").[0]
+            match productCatalog |> List.tryFind (fun p -> p.Name = selectedProductName) with
+    
+            | Some product -> updateProductDetails product
+            | None -> productDetailsLabel.Text <- "Product details not found."
+    )
+
     form
 
 // Main program
