@@ -61,18 +61,19 @@ let createMainForm (productCatalog: Product list) =
     form.Controls.Add(rightPanel)
 
         
-    let updateProductDetails (selectedProduct: Product) =
-        // Updating the product details label with selected product details
-        productDetailsLabel.Text <- $"Name: {selectedProduct.Name}\nPrice: ${selectedProduct.Price}\nDescription: {selectedProduct.Description}"
-   
-    
+    let updateProductDetails (selectedProduct: Product option) =
+        match selectedProduct with
+        | Some product ->
+            productDetailsLabel.Text <- $"Name: {product.Name}\nPrice: ${product.Price}\nDescription: {product.Description}"
+        | None ->
+            productDetailsLabel.Text <- "Select a product to view details."
+
     // Update product details when a product is selected
     productListBox.SelectedIndexChanged.Add(fun _ ->
         if productListBox.SelectedIndex >= 0 then
             let selectedProductName = productListBox.SelectedItem.ToString().Split(" - ").[0]
             match productCatalog |> List.tryFind (fun p -> p.Name = selectedProductName) with
-    
-            | Some product -> updateProductDetails product
+            | Some product -> updateProductDetails (Some product)  // Wrap product in Some
             | None -> productDetailsLabel.Text <- "Product details not found."
     )
 
