@@ -27,3 +27,4 @@ C:\Users\DELL\source\repos\simplestoresimulator\simplestoresimulator\obj\Debug\n
 C:\Users\DELL\source\repos\simplestoresimulator\simplestoresimulator\obj\Debug\net8.0-windows\simplestoresimulator.pdb
 C:\Users\DELL\source\repos\simplestoresimulator\simplestoresimulator\obj\Debug\net8.0-windows\simplestoresimulator.genruntimeconfig.cache
 C:\Users\DELL\source\repos\simplestoresimulator\simplestoresimulator\obj\Debug\net8.0-windows\ref\simplestoresimulator.dll
+C:\Users\DELL\source\repos\simplestoresimulator\simplestoresimulator\obj\Debug\net8.0-windows\simplestoresimulator.sourcelink.json
