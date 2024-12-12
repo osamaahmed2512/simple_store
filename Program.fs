@@ -76,6 +76,19 @@ let createMainForm (productCatalog: Product list) =
             | None -> productDetailsLabel.Text <- "Product details not found."
     )
 
+// Cart logic
+    let mutable cart = []
+
+    let updateCartListBox () =
+        cartListBox.Items.Clear()
+        cart |> List.iter (fun name -> cartListBox.Items.Add(name) |> ignore)
+
+    addToCartButton.Click.Add(fun _ -> 
+        if productListBox.SelectedIndex >= 0 then
+            let selectedProduct = productListBox.SelectedItem.ToString().Split(" - ").[0]
+            cart <- selectedProduct :: cart
+            updateCartListBox ()
+    )
     form
 
 // Main program
