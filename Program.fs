@@ -5,10 +5,8 @@ open System.Text.Json
 
  
 type Product = { Name: string; Price: decimal; Description: string }
-
 let parseProductCatalog (json: string): Product list =
     JsonSerializer.Deserialize<Product list>(json)
-
 // Function to load the product catalog from a JSON file
 let loadProductCatalog (filePath: string): Product list =
     if File.Exists(filePath) then
