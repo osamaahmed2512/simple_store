@@ -14,7 +14,9 @@ let loadProductCatalog (filePath: string): Product list =
     else
         MessageBox.Show($"Error: File {filePath} not found.", "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error) |> ignore
         []
-
+//6 
+let removeFromCart (cart: string list) productName =
+    cart |> List.filter ((<>) productName)
 
 // Create and initialize the main form
 let createMainForm (productCatalog: Product list) =
@@ -90,6 +92,20 @@ let createMainForm (productCatalog: Product list) =
             cart <- selectedProduct :: cart
             updateCartListBox ()
     )
+  // 6 
+ // Remove from cart event (functional, immutably updating the cart)
+    removeFromCartButton.Click.Add(fun _ ->
+        let selectedItem = 
+            if cartListBox.SelectedIndex >= 0 then
+                Some(cartListBox.SelectedItem.ToString())
+            else None
+
+        match selectedItem with
+        | Some item -> 
+            let updatedCart = removeFromCart currentCart item  // Create updated cart
+            updateCart updatedCart  // Update the UI with the new cart state
+        | None -> ()
+    )    
     form
 
 // Main program
