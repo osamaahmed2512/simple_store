@@ -14,7 +14,16 @@ let loadProductCatalog (filePath: string): Product list =
     else
         MessageBox.Show($"Error: File {filePath} not found.", "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error) |> ignore
         []
-//6 
+
+
+let addToCart (cart: string list) productName =
+    productName :: cart
+
+let renderCartListBox (cart: string list) (cartListBox: ListBox): unit =
+    cartListBox.Items.Clear()
+    cart |> List.iter (fun name -> cartListBox.Items.Add(name) |> ignore) 
+let updateCartState (cart: string list) (cartListBox: ListBox) =
+    renderCartListBox cart cartListBox
 let removeFromCart (cart: string list) productName =
     cart |> List.filter ((<>) productName)
 
@@ -79,19 +88,27 @@ let createMainForm (productCatalog: Product list) =
             | None -> productDetailsLabel.Text <- "Product details not found."
     )
 
-// Cart logic
-    let mutable cart = []
+    // State tracking for the cart (functional, immutable approach)
+    let mutable currentCart = []  // mutable state for cart tracking
 
-    let updateCartListBox () =
-        cartListBox.Items.Clear()
-        cart |> List.iter (fun name -> cartListBox.Items.Add(name) |> ignore)
+    // Update the cart state (immutable)
+    let updateCart (cart: string list) =
+        currentCart <- cart  // update the cart state
+        updateCartState cart cartListBox
 
-    addToCartButton.Click.Add(fun _ -> 
-        if productListBox.SelectedIndex >= 0 then
-            let selectedProduct = productListBox.SelectedItem.ToString().Split(" - ").[0]
-            cart <- selectedProduct :: cart
-            updateCartListBox ()
-    )
+    // Add to cart event (functional, immutably updating the cart)
+    addToCartButton.Click.Add(fun _ ->
+        let selectedProduct = 
+            if productListBox.SelectedIndex >= 0 then
+                Some(productListBox.SelectedItem.ToString().Split(" - ").[0])
+            else None
+
+        match selectedProduct with
+        | Some product -> 
+            let updatedCart = addToCart currentCart product
+            updateCart updatedCart  // Update UI with the new cart state
+        | None -> ()
+    ) // 5 
   // 6 
  // Remove from cart event (functional, immutably updating the cart)
     removeFromCartButton.Click.Add(fun _ ->
