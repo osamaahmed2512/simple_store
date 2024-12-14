@@ -26,7 +26,13 @@ let updateCartState (cart: string list) (cartListBox: ListBox) =
     renderCartListBox cart cartListBox
 let removeFromCart (cart: string list) productName =
     cart |> List.filter ((<>) productName)
-
+let getTotalCost (cart: string list) (productCatalog: Product list) =
+    cart
+    |> List.sumBy (fun name ->
+        match productCatalog |> List.tryFind (fun p -> p.Name = name) with
+        | Some p -> p.Price
+        | None -> 0m
+    )
 // Create and initialize the main form
 let createMainForm (productCatalog: Product list) =
 
@@ -122,7 +128,13 @@ let createMainForm (productCatalog: Product list) =
             let updatedCart = removeFromCart currentCart item  // Create updated cart
             updateCart updatedCart  // Update the UI with the new cart state
         | None -> ()
+    
     )    
+        // Checkout event (functional, immutable checkout calculation)
+    checkoutButton.Click.Add(fun _ ->
+        let total = getTotalCost currentCart productCatalog  // Use the total calculation
+        MessageBox.Show($"Total Cost: ${total}", "Checkout", MessageBoxButtons.OK, MessageBoxIcon.Information) |> ignore
+    )
     form
 
 // Main program
