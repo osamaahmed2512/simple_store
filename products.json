@@ -23,5 +23,130 @@
     "Name": "Backpack",
     "Price": 40.0,
     "Description": "Durable and stylish backpack."
+  },
+  {
+    "Name": "Tablet",
+    "Price": 300.0,
+    "Description": "A portable tablet for work and play."
+  },
+  {
+    "Name": "Camera",
+    "Price": 700.0,
+    "Description": "A professional DSLR camera."
+  },
+  {
+    "Name": "Wireless Mouse",
+    "Price": 25.0,
+    "Description": "Ergonomic wireless mouse."
+  },
+  {
+    "Name": "Keyboard",
+    "Price": 30.0,
+    "Description": "Mechanical gaming keyboard."
+  },
+  {
+    "Name": "Monitor",
+    "Price": 150.0,
+    "Description": "Full HD computer monitor."
+  },
+  {
+    "Name": "External Hard Drive",
+    "Price": 80.0,
+    "Description": "1TB external hard drive for backups."
+  },
+  {
+    "Name": "Gaming Console",
+    "Price": 400.0,
+    "Description": "Next-generation gaming console."
+  },
+  {
+    "Name": "Electric Kettle",
+    "Price": 35.0,
+    "Description": "Fast-boiling electric kettle."
+  },
+  {
+    "Name": "Blender",
+    "Price": 60.0,
+    "Description": "High-powered kitchen blender."
+  },
+  {
+    "Name": "Microwave Oven",
+    "Price": 120.0,
+    "Description": "Compact microwave for quick meals."
+  },
+  {
+    "Name": "Fitness Tracker",
+    "Price": 80.0,
+    "Description": "Track your steps and fitness goals."
+  },
+  {
+    "Name": "Printer",
+    "Price": 150.0,
+    "Description": "All-in-one wireless printer."
+  },
+  {
+    "Name": "Router",
+    "Price": 70.0,
+    "Description": "High-speed internet router."
+  },
+  {
+    "Name": "Electric Scooter",
+    "Price": 500.0,
+    "Description": "Foldable electric scooter for commuting."
+  },
+  {
+    "Name": "Coffee Maker",
+    "Price": 90.0,
+    "Description": "Brew fresh coffee every morning."
+  },
+  {
+    "Name": "Desk Chair",
+    "Price": 120.0,
+    "Description": "Ergonomic office chair."
+  },
+  {
+    "Name": "Bookshelf",
+    "Price": 70.0,
+    "Description": "Stylish wooden bookshelf."
+  },
+  {
+    "Name": "Air Conditioner",
+    "Price": 350.0,
+    "Description": "Split air conditioner for your home."
+  },
+  {
+    "Name": "Heater",
+    "Price": 60.0,
+    "Description": "Portable room heater."
+  },
+  {
+    "Name": "Washing Machine",
+    "Price": 500.0,
+    "Description": "Front-load automatic washing machine."
+  },
+  {
+    "Name": "Vacuum Cleaner",
+    "Price": 120.0,
+    "Description": "Bagless vacuum cleaner for easy cleaning."
+  },
+  {
+    "Name": "Refrigerator",
+    "Price": 600.0,
+    "Description": "Energy-efficient refrigerator."
+  },
+  {
+    "Name": "Oven",
+    "Price": 250.0,
+    "Description": "Electric convection oven for baking."
+  },
+  {
+    "Name": "Drone",
+    "Price": 800.0,
+    "Description": "High-definition drone with camera."
+  },
+  {
+    "Name": "Smart TV",
+    "Price": 1000.0,
+    "Description": "4K Ultra HD Smart TV."
   }
 ]
